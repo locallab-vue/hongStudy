@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+    <!-- 도움되는 콘솔 경고를 포함한 개발 버전 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="page">
+        <nav id="nav" v-bind:class="active" v-on:click.prevent>
+            <ul>
+                <li>{{ message }} : {{ active }}</li>
+                <li><a href="#" v-on:click="showPage('home')">Home</a></li>
+                <li><a href="#" v-on:click="showPage('profile')">Profile</a></li>
+                <li><a href="#" v-on:click="showPage('image')">image</a></li>
+            </ul>
+        </nav>
+        <div id="home" v-if="active === 'home'">
+            <p>Home 입니다.</p>
+        </div>
+        <div id="profile" v-if="active === 'profile'">
+            <p>홍진백 입니다. 1995년생이고 컴퓨터공학과 4학년 입니다.</p>
+        </div>
+        <div id="image"  v-if="active === 'image'">
+            <img src="https://i.imgur.com/g3D5jNz.jpg" alt="cat">
+        </div>
+    </div>
+
+    <script>
+        // 기본적 동작
+        var page = new Vue({
+            // element
+            el: '#page',
+            // data
+            data: {
+                message: '환영합니다.',
+                active: 'home',
+            },
+            methods: {
+                showPage: function (item) {
+                    this.active = item;
+                    console.log(this.active);
+                    console.log("인자", item);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
