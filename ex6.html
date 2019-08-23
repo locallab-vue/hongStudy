@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <!-- 도움되는 콘솔 경고를 포함한 개발 버전 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app-6">
+        <p>{{ message }}</p>
+        <!-- v-model의 경우 양방향 바인딩을 함. -->
+        <!-- 기존 DOM의 경우에는 정적으로 바인딩하므로, 입력값이 위에 반영이 될 수 없지만, vue에서는 양방향이므로 입력값이 {{ message }}에 자동 반영됨 -->
+        <!-- ***바인딩 : 변수에 실제 값이 묶이는 것 -->
+        <input v-model="message">
+    </div>
+    <!-- SCRIPT -->
+    <script>
+        var app6 = new Vue({
+            el: '#app-6',
+            data: {
+                message: '안녕하세요 Vue!'
+            }
+        })
+    </script>
+</body>
+
+</html>

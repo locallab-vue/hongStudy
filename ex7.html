@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <!-- 도움되는 콘솔 경고를 포함한 개발 버전 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app-7">
+        <ol>
+            <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id"></todo-item>
+        </ol>
+    </div>
+    <!-- SCRIPT -->
+    <script>
+        Vue.component('todo-item', {
+            // 속성을 정의해야함, html 상으로 속성은 item이므로, groceryList의 각 인덱스의 객체가 들어감
+            props: ['todo'],
+            // 템플릿으로, html 문법을 string으로 기술해야 함. (JSX 아님!)
+            template: '<li>{{ todo.text }}</li>'
+        })
+
+        var app7 = new Vue({
+            el: '#app-7',
+            data: {
+                ㅍ: [{
+                        // 반드시 key값이 있어야 함!
+                        id: 0,
+                        text: 'Vegetables'
+                    },
+                    {
+                        id: 1,
+                        text: 'Cheese'
+                    },
+                    {
+                        id: 2,
+                        text: 'Whatever else humans are supposed to eat'
+                    }
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>

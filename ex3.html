@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <!-- 도움되는 콘솔 경고를 포함한 개발 버전 -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app-3">
+            <p v-if="see">이제 나를 볼 수 있어요.</p>
+        </div>
+        <!-- SCRIPT -->
+        <script>
+            // 토글 v-if
+            var app = new Vue({
+                // element
+                el: '#app-3',
+                // data
+                data: {
+                    see: true
+                }
+            });
+        </script>
+    </body>
+</html>
